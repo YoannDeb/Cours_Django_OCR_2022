@@ -54,7 +54,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         verbose_name = "User"
         verbose_name_plural = "Users"
 
-"""
 class Band(models.Model):
     name = models.fields.CharField(max_length=100)
-"""
+
