@@ -9,13 +9,5 @@
             {% for band in bands %}
             <li>{{ band.name }}</li>
             {% endfor %}
-        </ul>
-        <p>Il y a {{ listings|length }} objets en vente</p>
-        <p>Les objets en vente sont :</p>
-        <ul>
-        {% for listing in listings %}
-        <li>{{ listing.title }}</li>
-        {% endfor %}
-        </ul>
     </body>
 </html>

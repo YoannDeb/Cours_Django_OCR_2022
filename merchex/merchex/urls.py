@@ -22,7 +22,9 @@ from listings import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', views.hello),
-    path('about-us/', views.about)
+    path('listings/', views.listings),
+    path('about-us/', views.about_us),
+    path('contact/', views.contact)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:
