@@ -3,13 +3,15 @@
     <head><title>Merchex</title></head>
     <body>
         <h1>Hello Django !</h1>
+        <p>J'ai {{ bands|length }} groupes préférés.</p>
         <p>Mes groupes préférés sont :</p>
         <ul>
             {% for band in bands %}
             <li>{{ band.name }}</li>
             {% endfor %}
         </ul>
-        <p>Les produits en vente sont :</p>
+        <p>Il y a {{ listings|length }} objets en vente</p>
+        <p>Les objets en vente sont :</p>
         <ul>
         {% for listing in listings %}
         <li>{{ listing.title }}</li>
