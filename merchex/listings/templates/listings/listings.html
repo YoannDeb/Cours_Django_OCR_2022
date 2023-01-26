@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Listings</title>
-</head>
-<body>
-        <h1>Liste des Objets</h1>
-        </ul>
-        <p>Il y a {{ listings|length }} objets en vente</p>
-        <p>Les objets en vente sont :</p>
-        <ul>
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+<h1>Liste des Objets</h1>
+</ul>
+<p>Il y a {{ listings|length }} objets en vente</p>
+<p>Les objets en vente sont :</p>
+<ul>
         {% for listing in listings %}
-        <li>{{ listing.title }}</li>
+                <li>{{ listing.title }}</li>
         {% endfor %}
-        </ul>
-</body>
-</html>
+</ul>
+
+{% endblock %}
