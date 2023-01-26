@@ -1,6 +1,5 @@
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.db import models, transaction
-from django.conf import settings
 
 
 class CustomUserManager(BaseUserManager):
