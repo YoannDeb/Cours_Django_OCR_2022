@@ -75,6 +75,9 @@ class Band(models.Model):
     active = models.fields.BooleanField(default=True)
     official_homepage = models.fields.URLField(null=True, blank=True)
 
+    def __str__(self):
+        return f'{self.name}'
+
 
 class Listing(models.Model):
 
@@ -98,3 +101,6 @@ class Listing(models.Model):
         validators = [MinValueValidator(1700), MaxValueValidator(2023)]
     )
     type = models.fields.CharField(default=MISCELLANEOUS, max_length=5, choices=TYPE_CHOICES)
+
+    def __str__(self):
+        return f'{self.title}'
