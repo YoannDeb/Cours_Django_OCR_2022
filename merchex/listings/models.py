@@ -77,4 +77,24 @@ class Band(models.Model):
 
 
 class Listing(models.Model):
+
+    RECORDS = 'RE'
+    CLOTHING = 'CL'
+    POSTERS = 'PO'
+    MISCELLANEOUS = 'MI'
+
+    TYPE_CHOICES = [
+        (RECORDS, 'Records'),
+        (CLOTHING, 'Clothing'),
+        (POSTERS, 'Posters'),
+        (MISCELLANEOUS, 'Miscellaneous')
+    ]
+
     title = models.fields.CharField(max_length=100)
+    description = models.fields.CharField(max_length=1000)
+    sold = models.fields.BooleanField(default=False)
+    year = models.fields.IntegerField(
+        null=True, blank=True,
+        validators = [MinValueValidator(1700), MaxValueValidator(2023)]
+    )
+    type = models.fields.CharField(default=MISCELLANEOUS, max_length=5, choices=TYPE_CHOICES)
