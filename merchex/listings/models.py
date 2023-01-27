@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.db import models, transaction
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class CustomUserManager(BaseUserManager):
@@ -54,7 +55,25 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = "Users"
 
 class Band(models.Model):
+
+    HIP_HOP = 'HH'
+    SYNTH_POP = 'SP'
+    ALTERNATIVE_ROCK = 'AR'
+
+    GENRE_CHOICES = [
+        (HIP_HOP, 'Hip-Hop'),
+        (SYNTH_POP, 'Synth-Pop'),
+        (ALTERNATIVE_ROCK, 'Alternative Rock')
+    ]
+
     name = models.fields.CharField(max_length=100)
+    genre = models.fields.CharField(max_length=5, choices=GENRE_CHOICES)
+    biography = models.fields.CharField(max_length=1000)
+    year_formed = models.fields.IntegerField(
+        validators=[MinValueValidator(1700), MaxValueValidator(2023)]
+    )
+    active = models.fields.BooleanField(default=True)
+    official_homepage = models.fields.URLField(null=True, blank=True)
 
 
 class Listing(models.Model):
