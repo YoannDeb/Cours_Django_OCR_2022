@@ -19,6 +19,8 @@
 
 <p>{{ listing.description }}</p>
 
-<a href="{% url 'listing-list' %}">Retour à la liste des annonces</a>
+<a href="{% url 'band-listing-list' band.id %}">Retour à toutes les annonces de ce groupe</a>
+<br>
+<a href="{% url 'listing-list' %}">Retour à la liste de toutes les annonces</a>
 
 {% endblock %}

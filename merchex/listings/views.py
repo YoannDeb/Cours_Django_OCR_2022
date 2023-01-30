@@ -16,6 +16,16 @@ def band_detail(request, band_id):
     }
     return render(request, 'listings/band_detail.html', context)
 
+def band_listing_list(request, band_id):
+    band = get_object_or_404(Band, pk=band_id)
+    band_listings = Listing.objects.filter(band=band)
+    print(band_listings)
+    context = {
+        'band': band,
+        'band_listings': band_listings,
+    }
+    return render(request, 'listings/band_listing_list.html', context)
+
 def listing_list(request):
     listings = Listing.objects.all()
     context = {
@@ -25,7 +35,9 @@ def listing_list(request):
 
 def listing_detail(request, listing_id):
     listing = get_object_or_404(Listing, pk=listing_id)
+    band = listing.band
     context = {
+        'band': band,
         'listing': listing,
     }
     return render(request, 'listings/listing_detail.html', context)
