@@ -2,9 +2,8 @@
 
 {% block content %}
 
-<h1>Hello Django !</h1>
- <p>J'ai {{ bands|length }} groupes préférés.</p>
- <p>Mes groupes préférés sont :</p>
+<h1>Groupes</h1>
+
  <ul>
      {% for band in bands %}
         <li>{{ band.name }}</li>
