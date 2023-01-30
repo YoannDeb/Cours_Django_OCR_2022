@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Band, Listing
 
@@ -10,7 +10,7 @@ def band_list(request):
     return render(request, 'listings/band_list.html', context)
 
 def band_detail(request, band_id):
-    band = Band.objects.get(id=band_id)
+    band = get_object_or_404(Band, pk=band_id)
     context = {
         'band': band,
     }
