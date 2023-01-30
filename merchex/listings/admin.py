@@ -82,13 +82,12 @@ class UserAdmin(BaseUserAdmin):
     group.short_description = 'Groups'
 
     list_display = (
-        'email', 'first_name', 'last_name', 'is_superuser',
-        'is_staff', 'group', 'date_created', 'date_updated')
+        'email', 'first_name', 'last_name', 'is_superuser', 'group', 'date_created', 'date_updated')
     list_filter = ('is_superuser', 'groups')
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
         ('Personal info', {'fields': ('first_name', 'last_name')}),
-        ('Permissions', {'fields': ('is_superuser', 'is_staff', 'groups')}),
+        ('Permissions', {'fields': ('is_superuser', 'groups')}),
     )
     # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
     # overrides get_fieldsets to use this attribute when creating a user.
