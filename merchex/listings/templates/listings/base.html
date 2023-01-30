@@ -7,7 +7,11 @@
     <link rel="shortcut icon" type="image/png" href="{% static 'listings/favicon.ico' %}"/>
     <link rel="stylesheet" href="{% static 'listings/styles.css' %}" />
 </head>
-<body>
-  {% block content %}{% endblock %}
-</body>
+    <body>
+        <nav>
+            <a href="{% url 'band-list' %}">Groupes</a>
+            <a href="{% url 'listing-list' %}">Annonces</a>
+        </nav>
+        {% block content %}{% endblock %}
+    </body>
 </html>
