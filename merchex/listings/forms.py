@@ -17,4 +17,5 @@ class BandForm(forms.ModelForm):
 class ListingForm(forms.ModelForm):
     class Meta:
         model = Listing
-        fields = '__all__'
+        exclude = ('sold',)
+
