@@ -26,7 +26,7 @@ urlpatterns = [
     path('bands/listings/<int:band_id>', views.band_listing_list, name='band-listing-list'),
     path('listings/', views.listing_list, name='listing-list'),
     path('listings/<int:listing_id>', views.listing_detail, name='listing-detail'),
-    path('about/', views.about),
+    path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
     path('email_sent/', views.email_sent, name='email-sent')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
