@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Band
+from .models import Band, Listing
 
 class ContactUsForm(forms.Form):
     nom = forms.CharField(required=False)
@@ -11,4 +11,10 @@ class ContactUsForm(forms.Form):
 class BandForm(forms.ModelForm):
     class Meta:
         model = Band
+        fields = '__all__'
+
+
+class ListingForm(forms.ModelForm):
+    class Meta:
+        model = Listing
         fields = '__all__'
