@@ -11,7 +11,10 @@
 <p>Les objets en vente sont :</p>
   <ul>
         {% for listing in band_listings %}
-                <li><a href="{% url 'listing-detail' listing.id %}">{{ listing.title }}</a></li>
+                <li>
+                    <a href="{% url 'listing-detail' listing.id %}">{{ listing.title }}</a>
+                    - <a href="{% url 'listing-update' listing.id %}">[Modifier]</a>
+                </li>
         {% endfor %}
   </ul>
 {% endif %}
