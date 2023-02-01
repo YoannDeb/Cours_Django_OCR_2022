@@ -27,7 +27,7 @@ urlpatterns = [
     path('listings/', views.listing_list, name='listing-list'),
     path('listings/<int:listing_id>', views.listing_detail, name='listing-detail'),
     path('about-us/', views.about_us),
-    path('contact/', views.contact)
+    path('contact/', views.contact, name='contact')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:

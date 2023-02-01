@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Band, Listing
+from .forms import ContactUsForm
 
 def band_list(request):
     bands = Band.objects.all()
@@ -46,4 +47,8 @@ def about_us(request):
 
 
 def contact(request):
-    return render(request, 'listings/contact.html')
+    form = ContactUsForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'listings/contact.html', context)
