@@ -56,6 +56,7 @@ def band_update(request, band_id):
 
     context = {
         'form': form,
+        'band': band,
     }
     return render(request, 'listings/band_update.html', context)
 
@@ -115,6 +116,7 @@ def listing_update(request, listing_id):
 
     context = {
         'form': form,
+        'listing': listing,
     }
     return render(request, 'listings/listing_update.html', context)
 
