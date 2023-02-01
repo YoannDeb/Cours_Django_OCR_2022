@@ -1,4 +1,5 @@
-# * { background: blue}
-h1 {
+h1, h2 {
     color: blue;
 }
+
+.errorlist { margin-bottom: -10px }

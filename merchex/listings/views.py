@@ -1,3 +1,4 @@
+from django.core.mail import send_mail
 from django.shortcuts import render, get_object_or_404
 from .models import Band, Listing
 from .forms import ContactUsForm
@@ -46,7 +47,21 @@ def about(request):
 
 
 def contact(request):
-    form = ContactUsForm()
+
+    if request.method == 'POST':
+        form = ContactUsForm(request.POST)
+
+        if form.is_valid():
+            send_mail(
+                subject=f'Message from {form.cleaned_data["nom"] or "anonyme"} via MerchEx Contact Us form',
+                message=form.cleaned_data['message'],
+                from_email=form.cleaned_data['email'],
+                recipient_list=['yoann@test.com']
+            )
+
+    else:
+        form = ContactUsForm()
+
     context = {
         'form': form
     }

@@ -141,3 +141,5 @@ STATIC_ROOT = Path.joinpath(BASE_DIR, 'merchex', 'static')
 DEBUG_TOOLBAR_CONFIG = {
     "INTERCEPT_REDIRECTS": False,
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
