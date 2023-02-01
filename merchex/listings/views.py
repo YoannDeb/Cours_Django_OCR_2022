@@ -41,8 +41,8 @@ def listing_detail(request, listing_id):
         'listing': listing,
     }
     return render(request, 'listings/listing_detail.html', context)
-def about_us(request):
-    return render(request, 'listings/about-us.html')
+def about(request):
+    return render(request, 'listings/about.html')
 
 
 def contact(request):
