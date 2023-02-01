@@ -19,3 +19,7 @@ class ListingForm(forms.ModelForm):
         model = Listing
         exclude = ('sold',)
 
+class ListingUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Listing
+        fields = '__all__'

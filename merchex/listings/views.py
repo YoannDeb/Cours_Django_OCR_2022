@@ -1,7 +1,7 @@
 from django.core.mail import send_mail
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Band, Listing
-from .forms import ContactUsForm, BandForm, ListingForm
+from .forms import ContactUsForm, BandForm, ListingForm, ListingUpdateForm
 
 def band_list(request):
     bands = Band.objects.all()
@@ -86,6 +86,23 @@ def listing_create(request):
         'form': form,
     }
     return render(request, 'listings/listing_create.html', context)
+
+def listing_update(request, listing_id):
+    listing = Listing.objects.get(id=listing_id)
+
+    if request.method == 'POST':
+        form = ListingUpdateForm(request.POST, instance=listing)
+        if form.is_valid():
+            form.save()
+            return redirect('listing-detail', listing.id)
+
+    else:
+        form = ListingUpdateForm(instance=listing)
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'listings/listing_update.html', context)
 
 def about(request):
     return render(request, 'listings/about.html')
