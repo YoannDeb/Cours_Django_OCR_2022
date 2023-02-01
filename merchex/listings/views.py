@@ -20,7 +20,6 @@ def band_detail(request, band_id):
 def band_listing_list(request, band_id):
     band = get_object_or_404(Band, pk=band_id)
     band_listings = Listing.objects.filter(band=band)
-    print(band_listings)
     context = {
         'band': band,
         'band_listings': band_listings,
