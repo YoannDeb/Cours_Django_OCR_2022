@@ -21,6 +21,8 @@
 
 <a href="{% url 'band-listing-list' band.id %}">Retour à toutes les annonces de ce groupe</a>
 <br>
-<a href="{% url 'listing-update' listing.id%}">Modifier l'annonce</a>
+<a href="{% url 'listing-update' listing.id %}">Modifier l'annonce</a>
+<br>
+<a href="{% url 'listing-delete' listing.id %}">Supprimer l'annonce</a>
 
 {% endblock %}
