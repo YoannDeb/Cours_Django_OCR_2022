@@ -3,6 +3,7 @@
 {% block content %}
 
 <h1>Liste des Objets</h1>
+<a href="{% url 'listing-create' %}">Créer une nouvelle annonce</a>
 </ul>
 <p>Il y a {{ listings|length }} objets en vente</p>
 <p>Les objets en vente sont :</p>
