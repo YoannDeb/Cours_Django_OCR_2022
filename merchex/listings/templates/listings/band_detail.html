@@ -20,5 +20,7 @@
 <p>{{ band.biography }}</p>
 
 <a href="{% url 'band-listing-list' band.id %}">Toutes les annonces de ce groupe</a>
+<br>
+<a href="{% url 'band-update' band.id %}">Modifier ce groupe</a>
 
 {% endblock %}
